@@ -49,7 +49,8 @@ module TinyResourceHelpers
 
   # If called from ProjectsController: return @project
   def resource
-    instance_variable_get("@#{resource_name}")
+    # instance_variable_get("@#{resource_name}")
+    @resource ||= model.find(params[:id])
   end
 
   # If called from ProjectsController: set instance variable @project
@@ -60,7 +61,8 @@ module TinyResourceHelpers
 
   # If called from ProjectsController: return @projects
   def collection
-    instance_variable_get(collection_name)
+    # instance_variable_get(collection_name)
+    @collection ||= model.all
   end
   
   # If called from ProjectsController: set instance variable @projects
