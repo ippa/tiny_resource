@@ -4,8 +4,8 @@ Requires Rails 3.0+ (works with the beta)
 
 == WHY
 I know about inherited_resources, make_resourceful etc. I've used them a lot.    
-I liked the feeling of control only using 1 abstract controller where I can easily see all the code (and modify it) as startingpoint instead of a "full resource plugin".
-It's not configurable as resoruceplugins. If you need to change it use normal class overloading. Or just modify tiny_resource.rb. It's one file to much around with. You can do it :).
+I liked the feeling of control using only 1 abstract controller where I can easily see all the code (and modify it) as starting point instead of a "full resource plugin".
+It's not as configurable a resource plugin. If you need to change it use normal class overloading. Or just modify tiny_resource.rb. It's one file to muck around with. You can do it :).
 
 == INSTALL
 1) Copy the 3 files to whatever directory. 
