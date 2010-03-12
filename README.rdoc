@@ -15,12 +15,30 @@ It's not configurable as resoruceplugins. If you need to change it use normal cl
 
 3) You can also just copy tiny_resource_controller.rb and tiny_resource_helpers.rb to your controllers directory. Bam, ready to use.
 
-== USE
+== USAGE
   class PagesController < TinyResourceController
     #
     # You now have the standard index, new, edit, create, update, destroy etc..
     # If you need to change some behaivor just modify tiny_resource_controller.rb (or a copy of it)
     #
+    # If you need to overload any method, you have 3 controller-methods to help you:
+    #
+    # * resource        # the current resource ( model.find(params[:id] )
+    # * collection      # the current collection ( model.all )
+    # * model           # the activerecord model, for example Project
+    #
   end
-
+  
 There's also TinyUserResourceController that creates, updates and destroys data through current_user.
+
+== IN THE VIEW
+  The default TinyResourceController adds some view-helpers with the normal "helper_method"-call
+
+  * collection_url          # /projects
+  * resource_url(5)         # /project/5
+  * edit_resource_url(5)    # /projects/5/edit
+  * new_resource_url        # /projects/new
+  * resource                # the resource-object, available in show, edit, update)
+  * collection              # the collection-array, available in index
+  * model                   # the activerecord-model, for example Project
+
