@@ -14,19 +14,17 @@ module TinyResourceHelpers
 
   # => /projects/5
   def resource_url(resource = nil)
-    return url_for(resource)  if resource
-    url_for(:controller => collection_name, :id => (resource || self.resource.id))
+    return url_for(resource || self.resource)
   end
   def resource_path(resource = nil)
-    return url_for(resource)  if resource
-    url_for(:controller => collection_name, :id => (resource || self.resource.id), :only_path => true)
+    return url_for(resource || self.resource)
   end
 
   # => /projects/5/edit
-  def edit_resource_url(resource)
+  def edit_resource_url(resource = nil)
     url_for(:controller => collection_name, :action => "edit", :id => (resource || self.resource.id))
   end
-  def edit_resource_path(resource)
+  def edit_resource_path(resource = nil)
     url_for(:controller => collection_name, :action => "edit", :id => (resource || self.resource.id), :only_path => true)
   end
 
