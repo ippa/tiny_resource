@@ -2,6 +2,7 @@ class TinyUserResourceController < ApplicationController
   require File.join(File.dirname(__FILE__), 'tiny_resource_helpers.rb')
   include TinyResourceHelpers
   helper_method :collection_url, :resource_url, :edit_resource_url, :new_resource_url
+  helper_method :collection_path, :resource_path, :edit_resource_path, :new_resource_path
   helper_method :resource, :collection, :model
 
   #
