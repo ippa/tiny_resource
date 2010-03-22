@@ -34,11 +34,12 @@ There's also TinyUserResourceController that creates, updates and destroys data 
 == IN THE VIEW
   The default TinyResourceController adds some view-helpers with the normal "helper_method"-call
 
-  * collection_url          # /projects
-  * resource_url(5)         # /project/5
-  * edit_resource_url(5)    # /projects/5/edit
-  * new_resource_url        # /projects/new
+  * collection_path         # /projects
+  * resource_path(5)        # /project/5
+  * edit_resource_path(5)   # /projects/5/edit
+  * new_resource_path       # /projects/new
   * resource                # the resource-object, available in show, edit, update)
   * collection              # the collection-array, available in index
   * model                   # the activerecord-model, for example Project
 
+  You also have collection_url, resource_url(5), edit_resource_url(5) and new_resource_url which works as their *_path equivalents but with full URLs.
