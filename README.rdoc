@@ -42,4 +42,5 @@ There's also TinyUserResourceController that creates, updates and destroys data 
   * collection              # the collection-array, available in index
   * model                   # the activerecord-model, for example Project
 
-  You also have collection_url, resource_url(5), edit_resource_url(5) and new_resource_url which works as their *_path equivalents but with full URLs.
+  You also have collection_url, resource_url(5), edit_resource_url(5) and new_resource_url.
+  They work as their *_path equivalents but with full URLs instead.
