@@ -39,7 +39,7 @@ See example bellow:
   class PagesController < TinyResourceController
     # Add pagination to the index-listing
     def index
-      self.collection = Page.all(:order => "created_at DESC").paginate(:per_page => 10, :page => params[:page])
+      self.collection = Page.paginate(:per_page => 10, :page => params[:page])
     end
 
     # This overloading doesn't change any behaivor but it uses the tiny resource helper "model" instead of "Page"
