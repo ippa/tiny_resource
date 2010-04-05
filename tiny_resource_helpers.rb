@@ -47,7 +47,10 @@ module TinyResourceHelpers
   # i.e. Controller ProjectController returns model Project
   #
   def model
-    self.class.to_s.gsub("Controller","").singularize.constantize
+    model_name = self.class.to_s.gsub("Controller","").singularize
+
+    # For example, if Admin::Product fails it tries just Product
+    model_name.constantize  rescue  model_name.demodulize.constantize
   end
 
   # ProjectsController will return "project"
