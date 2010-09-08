@@ -1,19 +1,23 @@
 = tiny_resource
-Minimalistic abstract resource controllers to use as a starting point for your standard resource.
-Requires Rails 3.0+ (works with the beta)
+Minimalistic abstract resource controllers to use as a starting point for your standard rails resource.
+Requires Rails 3.0+ (works with the beta).
 
 == WHY
 I know about inherited_resources, make_resourceful etc. I've used them a lot.    
-I liked the feeling of control using only 1 abstract controller where I can easily see all the code (and modify it) as starting point instead of a "full resource plugin".
+With tiny_resource you get less flash. You get 1 easy-to-read controller and 1 helper file which provides just about everything.
+With tiny_resource you can easily see and modify the code that serves as base controller code for your rails resources.
 It's not as configurable a resource plugin. If you need to change it use normal class overloading. Or just modify tiny_resource.rb. It's one file to muck around with. You can do it :).
 
+
 == INSTALL
-1) Copy the 3 files to whatever directory. 
+1) Copy the 3 files to whatever directory
 
 2) Configure Rails:
-  config.load_paths += %W( /path/to/tiny_resource )
+  config.autoload_paths += %W( /path/to/that/directory )
 
-3) You can also just copy tiny_resource_controller.rb and tiny_resource_helpers.rb to your controllers directory. Bam, ready to use.
+or 
+
+1) Copy tiny_resource_controller.rb and tiny_resource_helpers.rb to your controllers directory. Bam, ready to use.
 
 == USAGE
   class PagesController < TinyResourceController

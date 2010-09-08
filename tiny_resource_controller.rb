@@ -10,16 +10,19 @@ class TinyResourceController < ApplicationController
   end
   
   def show
-    self.resource = model.find(params[:id])
+    #self.resource = model.find(params[:id])
+    self.resource = find_resource
   end
   
   def edit
-    self.resource = model.find(params[:id])
+    # self.resource = model.find(params[:id])
+    self.resource = find_resource
     render "_form"
   end
   
   def update
-    model.find_by_id(params[:id]).update_attributes(params[self.resource_name.to_sym])
+    #model.find_by_id(params[:id]).update_attributes(params[self.resource_name.to_sym])
+    find_resource.update_attributes(params[self.resource_name.to_sym])
     redirect_to :back
   end
 
@@ -34,7 +37,8 @@ class TinyResourceController < ApplicationController
   end
 
   def destroy
-    model.find(params[:id]).destroy
+    #model.find(params[:id]).destroy
+    find_resource.destroy
     redirect_to collection_url
   end
 

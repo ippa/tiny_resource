@@ -22,6 +22,7 @@ module TinyResourceHelpers
 
   # => /projects/5/edit
   def edit_resource_url(resource = nil)
+    # [:edit, resource] ?!? se http://www.railsdispatch.com/
     url_for(:controller => collection_name, :action => "edit", :id => (resource || self.resource.id))
   end
   def edit_resource_path(resource = nil)
@@ -67,6 +68,10 @@ module TinyResourceHelpers
   def resource
     # instance_variable_get("@#{resource_name}")
     @resource ||= model.find(params[:id])
+  end
+
+  def find_resource
+    resource
   end
 
   # If called from ProjectsController: set instance variable @project
