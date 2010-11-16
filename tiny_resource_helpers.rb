@@ -37,8 +37,6 @@ module TinyResourceHelpers
     url_for(:controller => collection_name, :action => "new", :only_path => true)
   end
 
-
-
   #
   # Controller helpers
   #
@@ -66,7 +64,6 @@ module TinyResourceHelpers
 
   # If called from ProjectsController: return @project
   def resource
-    # instance_variable_get("@#{resource_name}")
     @resource ||= model.find(params[:id])
   end
 
@@ -82,7 +79,6 @@ module TinyResourceHelpers
 
   # If called from ProjectsController: return @projects
   def collection
-    # instance_variable_get(collection_name)
     @collection ||= model.all
   end
   
