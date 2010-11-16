@@ -15,7 +15,14 @@ class TinyResourceController < ApplicationController
   
   def edit
     self.resource = find_resource
-    render "_form"
+
+    # Default rails behaivor
+    begin
+      render "edit"
+    # With rails 3, you can often skip edit.erb and go straight to _form.erb
+    rescue ActionView::MissingTemplate
+      render "_form"
+    end
   end
   
   def update
@@ -25,7 +32,14 @@ class TinyResourceController < ApplicationController
 
   def new
     self.resource = model.new
-    render "_form"
+    
+    # Default Rails behaivor
+    begin
+      render "new"
+    # With Rails 3, you can often skip new.erb and go straight to _form.erb
+    rescue ActionView::MissingTemplate
+      render "_form"
+    end
   end
 
   def create
