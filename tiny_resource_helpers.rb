@@ -14,10 +14,10 @@ module TinyResourceHelpers
 
   # => /projects/5
   def resource_url(resource = nil)
-    return url_for(resource || self.resource)
+    url_for(resource || self.resource)
   end
   def resource_path(resource = nil)
-    return url_for(resource || self.resource)
+    url_for(resource || self.resource, :only_path => true)
   end
 
   # => /projects/5/edit
