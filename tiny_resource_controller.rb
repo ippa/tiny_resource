@@ -1,3 +1,4 @@
+#encode: utf-8
 class TinyResourceController < ApplicationController  
   require File.join(File.dirname(__FILE__), 'tiny_resource_helpers.rb')
   include TinyResourceHelpers

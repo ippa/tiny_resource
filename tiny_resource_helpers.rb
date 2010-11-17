@@ -17,7 +17,7 @@ module TinyResourceHelpers
     url_for(resource || self.resource)
   end
   def resource_path(resource = nil)
-    url_for(resource || self.resource, :only_path => true)
+    url_for(resource || self.resource)
   end
 
   # => /projects/5/edit
