@@ -1,0 +1,35 @@
+Try out polymorphic_url for helpers, like:
+
+  def collection_url
+     polymorphic_url(model.new)
+  end
+  def collection_path
+    polymorphic_path(model.new)
+  end
+  
+  def resource_url(*object = nil)
+    object = self.resource unless object
+    polymorphic_url(object)
+  end
+  def resource_path(*object = nil)
+    object = self.resource unless object
+    polymorphic_path(object)
+  end
+  
+  def edit_resource_url(*object = nil)
+    object = self.resource unless object
+    polymorphic_url(object, :action => :edit)
+  end
+  def edit_resource_path(*object = nil)
+    object = self.resource unless object
+    polymorphic_path(object, :action => :edit)
+  end
+  
+  def new_resource_url(*object = nil)
+    object = self.resource unless object
+    polymorphic_url(object, :action => :new) 
+  end
+  def new_resource_path(*object = nil)
+    object = self.resource unless object
+    polymorphic_path(object, :action => :new)
+  end
