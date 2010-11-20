@@ -16,41 +16,22 @@ class TinyResourceController < ApplicationController
   
   def edit
     self.resource = find_resource
-
-    # Default rails behaivor
-    begin
-      render "edit"
-    # With rails 3, you can often skip edit.erb and go straight to _form.erb
-    rescue ActionView::MissingTemplate
-      render "_form"
-    end
   end
   
   def update
     find_resource.update_attributes(params[self.resource_name.to_sym])
-    redirect_to :back
   end
 
   def new
     self.resource = model.new
-    
-    # Default Rails behaivor
-    begin
-      render "new"
-    # With Rails 3, you can often skip new.erb and go straight to _form.erb
-    rescue ActionView::MissingTemplate
-      render "_form"
-    end
   end
 
   def create
-    self.resource = model.new(params[resource_name.to_sym]).save
-    redirect_to :back
+    self.resource = model.new(params[resource_name.to_sym])
+    self.resource.save
   end
 
   def destroy
     find_resource.destroy
-    redirect_to collection_url
   end
-
 end
