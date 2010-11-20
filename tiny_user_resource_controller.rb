@@ -20,27 +20,23 @@ class TinyUserResourceController < ApplicationController
   
   def edit
     self.resource = current_user.send(collection_name).find(params[:id])
-    render "_form"
   end
 
   def update
     current_user.send(collection_name).find_by_id(params[:id]).update_attributes(params[self.resource_name.to_sym])
-    redirect_to :back
   end
 
   def new
     self.resource = current_user.send(collection_name).new
-    render "_form"
   end
 
   def create
-    self.resource = current_user.send(collection_name).new(params[self.resource_name.to_sym]).save
-    redirect_to :back
+    self.resource = current_user.send(collection_name).new(params[self.resource_name.to_sym])
+    self.resource.save
   end
 
   def destroy
     current_user.send(collection_name).find(params[:id]).destroy
-    redirect_to collection_url
   end
 
 end
