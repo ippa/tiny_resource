@@ -31,8 +31,7 @@ class TinyUserResourceController < ApplicationController
   end
 
   def create
-    self.resource = current_user.send(collection_name).new(params[self.resource_name.to_sym])
-    self.resource.save
+    self.resource = current_user.send(collection_name).create!( params[self.resource_name.to_sym] )
   end
 
   def destroy

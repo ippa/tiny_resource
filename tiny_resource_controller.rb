@@ -1,4 +1,4 @@
-#encode: utf-8
+#encoding: utf-8
 class TinyResourceController < ApplicationController  
   require File.join(File.dirname(__FILE__), 'tiny_resource_helpers.rb')
   include TinyResourceHelpers
@@ -27,8 +27,7 @@ class TinyResourceController < ApplicationController
   end
 
   def create
-    self.resource = model.new(params[resource_name.to_sym])
-    self.resource.save
+    self.resource = model.create!(params[resource_name.to_sym])
   end
 
   def destroy
